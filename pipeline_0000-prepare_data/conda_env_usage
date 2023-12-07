@@ -1,0 +1,14 @@
+CONTAINER_NAME="pipeline_0000-prepare_data"
+
+conda activate ${CONTAINER_NAME}
+
+CONDA_PATH=$(dirname $(dirname $(which conda)))
+export LD_LIBRARY_PATH=$CONDA_PATH/envs/$CONDA_ENV_NAME/lib/
+export PYTHONPATH='.'
+
+
+python prepare_data.py \
+    --hdf5_file ../data/test_data/TEST_IMAGES.hdf5 \
+    --caption_csv_file ../data/test_data/caption/test_caption_data_drop_duple.csv \
+    --result_image_folder ../data/test_data/image/
+
