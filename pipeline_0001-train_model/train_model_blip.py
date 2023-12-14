@@ -9,7 +9,6 @@ from datasets import load_dataset
 
 def make_dataset_from_metadata(data_root_path):
     dataset = load_dataset("imagefolder", data_dir=data_root_path, split="train")
-
     return dataset
 
 
@@ -71,11 +70,11 @@ def train_model(model, train_dataloader, optimizer, epochs):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Prepare image data')
     parser.add_argument('--image_folder', type=str, default="data/test_data/image/", help='Path to Image Folder')
-    parser.add_argument('--caption_csv_file', type=str, default='data/test_data/caption/test_caption_data_drop_duple.csv', help='Path to Excel file')
     parser.add_argument('--result_checkpoint_file', type=str, default='data/checkpoints/test_blip_fine_tuning_model.pt', help='Path to store trained model')
     args = parser.parse_args()
 
     data_root_path = args.image_folder
+    result_checkpoint_file = args.result_checkpoint_file
 
     processor, model, device, optimizer = load_processor_and_model()
     dataset = make_dataset_from_metadata(data_root_path)
@@ -89,33 +88,3 @@ if __name__ == "__main__":
 
 
 # conda install pytorch torchvision torchaudio cudatoolkit=11.8 -c pytorch -c nvidia
-
-# python train_model_02/train_model_blip.py
-
-
-
-# def prepare_image_text(excel_file_path):
-#     captions = []
-#     df = pd.read_csv(excel_file_path)
-
-#     for i in range(len(df)):
-#         caption_dict = {'file_name': f'image_{i+1}.png', 'text': df.iloc[i, 1]}
-#         captions.append(caption_dict)
-
-#     root = args.image_folder
-
-#     with open(root + "metadata.jsonl", 'w') as f:
-#         for item in captions:
-#             f.write(json.dumps(item) + "\n")
-
-#     dataset = load_dataset("imagefolder", data_dir=root, split="train")
-
-#     return dataset
-
-
-# def prepare_image_text(excel_file_path):
-#     image_caption_pair = make_image_caption_pair(excel_file_path)
-#     data_root_path = save_image_caption_pair(image_caption_pair, args.image_folder)
-#     dataset = make_dataset_from_metadata(data_root_path)
-
-#     return dataset
