@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "MLOps_Pipeline",
+			"path": ".."
+		},
+		{
+			"name": "TEST_image_drop_duple",
+			"path": "../../../../miniconda3/envs/ksm/TEST_image_drop_duple"
+		}
+	],
+	"settings": {}
+}
