@@ -45,7 +45,6 @@ def generate_caption_trained_model(data_root_path, reference_caption, processor,
 
         if not i%100:
             print(i)
-            print(generated_text)
 
     return generated_caption
 
