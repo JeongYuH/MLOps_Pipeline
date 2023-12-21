@@ -1,0 +1,11 @@
+CONTAINER_NAME="pipeline_0003_deploy_model"
+
+conda activate ${CONTAINER_NAME}
+
+CONDA_PATH=$(dirname $(dirname $(which conda)))
+export LD_LIBRARY_PATH=$CONDA_PATH/envs/$CONDA_ENV_NAME/lib/
+export PYTHONPATH='.'
+
+
+python app.py \
+
