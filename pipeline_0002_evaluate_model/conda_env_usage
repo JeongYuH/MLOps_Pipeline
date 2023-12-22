@@ -1,4 +1,4 @@
-CONTAINER_NAME="pipeline_0000_prepare_data"
+CONTAINER_NAME="pipeline_0002_evaluate_model"
 
 conda activate ${CONTAINER_NAME}
 
@@ -7,8 +7,7 @@ export LD_LIBRARY_PATH=$CONDA_PATH/envs/$CONDA_ENV_NAME/lib/
 export PYTHONPATH='.'
 
 
-python prepare_data.py \
-    --hdf5_file ../data/test_data/TEST_IMAGES.hdf5 \
+python evaluate_trained_model.py \
+    --image_folder ../data/test_data/image \
     --caption_csv_file ../data/test_data/caption/test_caption_data_drop_duple.csv \
-    --result_image_folder ../data/test_data/image/
-
+    --result_checkpoint_file ../data/checkpoints/test_blip_fine_tuning_model.pt

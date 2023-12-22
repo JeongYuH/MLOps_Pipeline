@@ -1,9 +1,0 @@
-numpy==1.24.1
-transformers
-chardet
-datasets
-
---extra-index-url https://download.pytorch.org/whl/cu118
-torch
-torchvision
-torchaudio

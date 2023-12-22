@@ -1,4 +1,4 @@
-CONTAINER_NAME="pipeline_0001-train_model"
+CONTAINER_NAME="pipeline_0001_train_model"
 
 conda activate ${CONTAINER_NAME}
 
